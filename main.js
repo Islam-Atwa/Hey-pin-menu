@@ -4,6 +4,7 @@ const listOfItems =[
     '@islamatwa1',
     'LinkedIn islam atwa',
     'leetcode islam atwa429',
+    'Instagram islam atwa',
     'semicolon.academy'
 ];
 
@@ -24,4 +25,17 @@ document.addEventListener('DOMContentLoaded', function(){
         div.style.transform = `scale (${1 - reverseIndex * baseScaleChange}) translateY(-${baseScaleChange * reverseIndex}rem)`;
         stack.append(div);
     }
-})
+
+    //هذه الدالة تضيف وظيفة عند النقر على العنصر الذي يحمل المعرف stack
+
+    stack.addEventListener('click', function (e) {
+        e.stopPropagation();
+        const blocks = this.querySelectorAll('.single-block');
+        blocks.forEach((block, i) => {
+            const reverseindex = blocks.length - 1 - i;
+            block.style.transform = `rotate(${reverseindex * 1.1}deg) translate(-${reverseindex * 0.2}rem, -${reverseindex * 4}rem)`;
+        });
+    });
+    
+});
+
