@@ -36,6 +36,16 @@ document.addEventListener('DOMContentLoaded', function(){
             block.style.transform = `rotate(${reverseindex * 1.1}deg) translate(-${reverseindex * 0.2}rem, -${reverseindex * 4}rem)`;
         });
     });
+
+    document.addEventListener('click', function(e) {
+        const blocks = document.querySelectorAll('.single-block');
+        blocks.forEach((block, i)=>{
+            const reverseIndex = listOfItems.length - 1 - i;
+            block.style.transform = `scale(${
+                1 - reverseIndex * baseScaleChange
+              }) translateY(-${baseTranslateChange * reverseIndex}rem)`;
+        });
+    });
     
 });
 
